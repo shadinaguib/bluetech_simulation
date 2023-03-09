@@ -17,6 +17,11 @@ class PicoSub(Node):
 
 
     def vel_callback(self, msg: String):
+        """Send the command to the microcontroller depending on the string received from the /cmd_vel topic
+
+        Args:
+            msg (String): string coming from the /cmd_vel topic indicating what command should be sent to the robot.
+        """
         if msg.data == "l":
             self.data.data = 1
             self.get_logger().info(f"Sent 1 to PICO, move the LM_A motor")  

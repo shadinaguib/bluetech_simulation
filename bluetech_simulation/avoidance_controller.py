@@ -1,20 +1,9 @@
-"""forward effort will turn off friction of the left wheel and apply an effort
-to the right wheel and vice versa in an infinite loop
-
-The effort is applied to the /right_wheel_effort_controller/commands and
-/left_wheel_effort_controller/commands
-Use this to move the robot step by step (each step for specific time period)
-
-This was initially used to model the adhesion force in the Gazebo simulation. 
-The link force is implemented as a service that applies a specified force on the right
-link in the negative Z direction
-More info here http://docs.ros.org/en/jade/api/gazebo_msgs/html/srv/ApplyBodyWrench.html
-
+"""
 usage
 make sure the robot is spawned in Gazebo. Make sure you specify the force applied on
 the link as an argument, in the example below, the force applied is 10
 
-ros2 run bluetech_simulation forward_effort"""
+ros2 run bluetech_simulation avoidance_controller"""
 
 import sys
 import time
@@ -106,11 +95,11 @@ class AvoidanceController(Node):
                 self.state = self.turning_right
                 self.left_encoder_goal_value = self.left_encoder_goal_value + self.turn_angle
 
-    def avoid_weld_line(self, weld_line_status_msg):
-        """_summary_
+    def avoid_weld_line(self, weld_line_status_msg: Bool):
+        """Sets motor goals to avoid going outside the welded rectangle
 
         Args:
-            weld_line_status_msg (_type_): _description_
+            weld_line_status_msg (Bool): True if the sensor went over a weld line, False if not.
         """
         if weld_line_status_msg.data:
             self.get_logger().info(f"First pass over weld line")

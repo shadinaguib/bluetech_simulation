@@ -1,26 +1,4 @@
 '''Updates the position of the robot based on the current encoder readings. 
-
-This handles the robot movemet correctly by moving only one motor at 
-a time.
-
-    publisher                      topics                      subscriber        
-publish_encoder ---> /right_encoder and /left_encoder ---> bluetech_localization
-
-Sequence of events:
-
-1. Update time information (current time, time elapsed)
-
-2. Update the robot theta here the robot theta is the total angle moved by both the motors 
-   theta = right_radians - left_radians (-ve sign to handle orientation)
-
-3. To get the current position of the chassis_link. Check which motor is rotating
-    3.1 get the current position of the rotating motor wrt the odom frame
-    3.2 rotate the chassis_link about the origin (origin: rotating frame) by the angle moved by the motor
-    3.3 shift the origin of the chassis_link to the position of the current rotating motor
-
-4. update the current velocities
-
-5. publish tf2 and odom data
 '''
 
 

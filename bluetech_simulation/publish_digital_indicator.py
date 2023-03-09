@@ -28,6 +28,11 @@ class PublishIndicator(Node):
         self.get_logger().info("Started publish_digital_indicator node")
         
     def compute_weld_line_status(self, int_msg):
+        """From the sensor value, determine if a weld line was detected or not.
+
+        Args:
+            int_msg (LaserScan): displacement sensor values from the middle of the chassis.
+        """
         value = Float64()
         value.data = int_msg.intensities[0]
         if self.looking_for_weld_line:

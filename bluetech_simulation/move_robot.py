@@ -6,6 +6,11 @@ from std_msgs.msg import Float64MultiArray, Bool, String
 
 
 class MoveRobot(Node):
+    """Node making the robot move in simulation. 
+    It gets values from /cmd_vel topic (coming from autonomous controller / keyboard_teleop) and 
+    adapts friction values and motor commands. 
+    """
+
 
     def __init__(self, effort: float):
         super().__init__('move_robot')
@@ -33,6 +38,12 @@ class MoveRobot(Node):
 
 
     def vel_callback(self, msg: String):
+        """Function called every time a message gets published to the /cmd_vel topic. This function reads the message and 
+        adapts the friction and motor commands accordingly.
+
+        Args:
+            msg (String): _description_
+        """
 
         friction_status = self.friction_status
         self.get_logger().info(f"Previous friction status : {self.friction_status.data}")
@@ -90,14 +101,6 @@ class MoveRobot(Node):
             # move the right wheel
             self.effort_command.data = [self.effort]
             self.effort_right.publish(self.effort_command)
-            #time_to_sleep = 8 #angle_to_time(90)
-
-            #time.sleep(time_to_sleep)
-            #self.effort_command.data = [0.0]
-            #self.effort_right.publish(self.effort_command)
-            #self.friction_status.data = '11'
-            #self.friction.publish(self.friction_status)
-            #self.get_logger().info(f"Just stopped the motors!")
 
         elif msg.data == "l":
             
