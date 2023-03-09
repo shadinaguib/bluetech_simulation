@@ -1,0 +1,20 @@
+[console_scripts]
+apply_effort = bluetech_simulation.apply_effort:main
+bluetech_localization = bluetech_simulation.bluetech_localization:main
+bluetech_localization_over_wifi = bluetech_simulation.bluetech_localization_over_wifi:main
+forward_effort = bluetech_simulation.forward_effort:main
+get_data_from_rami = bluetech_simulation.get_data_from_rami:main
+jetson_client = bluetech_simulation.jetson_client:mainjoint_position_client = bluetech_simulation.joint_position_client:main
+keyboard_teleop = bluetech_simulation.keyboard_teleop:main
+link_wrench_client = bluetech_simulation.link_wrench_client:main
+move_robot = bluetech_simulation.move_robot:main
+pico_control = bluetech_simulation.pico_control:main
+pico_from_teleop = bluetech_simulation.pico_from_teleop:main
+position_estimate = bluetech_simulation.position_estimate:main
+publish_from_encoder = bluetech_simulation.publish_from_encoder:main
+publish_from_joint_state = bluetech_simulation.publish_from_joint_state:main
+robot_localization = bluetech_simulation.robot_localization:main
+send_effort = bluetech_simulation.send_effort:main
+send_int_to_pico = bluetech_simulation.send_int_to_pico:main
+send_two_vacuum_forces = bluetech_simulation.send_two_vacuum_forces:main
+

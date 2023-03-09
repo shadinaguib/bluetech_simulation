@@ -1,0 +1,93 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    right_wheel_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    
+    right_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+
+    right_wheel_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+  
+    left_wheel_effort_controller:
+      type: effort_controllers/JointGroupEffortController
+    
+    left_wheel_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_wheel_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+
+right_wheel_trajectory_controller:
+  ros__parameters:
+    joints:
+      - right_wheel_joint
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+right_wheel_effort_controller:
+  ros__parameters:
+    joints:
+      - right_wheel_joint
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - effort
+    pid: {p: 100000.0, i: 0.01, d: 0.001}
+
+
+right_wheel_velocity_controller:
+  ros__parameters:
+    joints:
+      - right_wheel_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - velocity
+    pid: {p: 100000.0, i: 0.01, d: 0.001}
+
+
+
+
+left_wheel_trajectory_controller:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+left_wheel_effort_controller:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - effort
+    pid: {p: 100000.0, i: 0.01, d: 0.001}
+
+
+left_wheel_velocity_controller:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - velocity
+    pid: {p: 100000.0, i: 0.01, d: 0.001}
