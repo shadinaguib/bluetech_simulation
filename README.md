@@ -1,13 +1,6 @@
 # bluetech_simulation
 
-Contains the ROS package for bluetech navigation simulated in Gazebo.  
-
-# Overview
-
-## Developing
-- custom effort PID controller for position control on motors
-- porting navigation algorithm from ```bluetech_navigtion``` to ROS.
-
+Contains the ROS2 package for bluetech navigation simulated in Gazebo.  
 
 # Installation
 
@@ -32,7 +25,7 @@ Before running any files, make sure you have to following dependencies installed
 - [classic gazebo 11](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install)
 
 ## Cloning the package
-Inside the ```src``` folder, clone the repository. This is a ROS package and has to be built after cloning. 
+Inside the ```src``` folder, clone the repository. This is a ROS2 package and has to be built after cloning. 
 
 ```
 git clone <link_to_repo>
