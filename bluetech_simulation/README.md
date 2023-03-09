@@ -16,6 +16,7 @@ the microcontroller subscribes to. The C code on the microcontroller interprets 
 message received over the topic and executes the corresponding motor actions.
 
 ![](../images/software_stack.drawio.png)
+
 The sensor values like the displacement from the weld line sensor, the ticks from
 the encoder, etc are published from the Pico to ROS2 topics that the Linux computer
 processes. The motor commands are then communicated through a ROS2 topic to the
@@ -74,8 +75,8 @@ Sequence of events:
    2. rotate the chassis_link about the origin (origin: rotating frame) by the angle moved by the motor
    3. shift the origin of the chassis_link to the position of the current rotating motor
 
-4. update the current velocities
-5. publish tf2 and odom data
+4. Update the current velocities
+5. Publish tf2 and odom data
 
 ### forward_effort
 
